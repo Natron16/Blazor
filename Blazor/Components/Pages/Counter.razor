@@ -1,0 +1,82 @@
+﻿@page "/counter/{initialCount:int?}"
+@page "/counter2"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<div class="mt-3">
+    <label for="nameInput"></label>
+    <input id="nameInput" @bind="Name" />
+    <p>Name: @Name</p>
+</div>
+
+<div class="mt-3">
+    <label for="addressInput"></label>
+    <input id="addressInput" @bind="Address" />
+    <p>Address: @Address</p>
+</div>
+
+<div style="color: @ColorPoint" @onmouseover="MouseOver" @onmouseout="MouseOut">
+    <p>Name: @Name</p>
+
+</div>
+
+@if (currentCount > 3) 
+{
+    <p>You Win!</p>
+
+}
+
+<ul>
+@for (int i = 0; i < currentCount; i++)
+{
+    <p>Click</p>
+}
+</ul>
+
+
+@code {
+    private int currentCount = 0;
+
+    string Name = "";
+
+    string ColorPoint = "black";
+
+    private string[] Colors = { "red", "blue", "green", "purple", "orange" }; 
+    string Address = "";
+
+
+    protected override void OnInitialized()
+    {
+        currentCount = InitialCount;
+    }
+
+    [Parameter]
+    public int InitialCount {get; set; }
+
+    [Parameter]
+    public int IncrementAmount { get; set; } = 1;
+
+    private void IncrementCount()
+    {
+        currentCount += IncrementAmount;
+    }
+
+    private void MouseOver() 
+    {
+        ColorPoint = "gray";
+    }
+
+    private void MouseOut()
+    {
+        var random = new Random();
+        ColorPoint = Colors[random.Next(Colors.Length)];
+    }
+
+}

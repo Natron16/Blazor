@@ -1,0 +1,87 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+
+<PageTitle>Home</PageTitle>
+
+
+<h1>Hello, world!</h1>
+
+
+Welcome to your new app.
+
+
+<button class="btn btn-primary" @onclick="() => get_date_Async()">What's Today</button>
+
+
+@if (iscalled)
+{
+    <p>
+        Date: <code>@formattedDate</code>
+    </p>
+}
+else
+{
+    <p>Who Cares?</p>
+}
+
+
+<button class="btn btn-primary" @onclick="random_number">Alphabet</button>
+
+
+@if (letterCall && isVisible)
+{
+    for (int i = 0; i < num; i++)
+    {
+        <p>
+            <code>@alphabet[i]</code>
+        </p>
+    }
+}
+
+
+
+@code {
+
+    private bool iscalled = false;
+
+    string text = "";
+    private bool letterCall = false;
+
+
+    private Random random = new Random();
+
+    private int num;
+
+    private bool isVisible = false;
+
+    string formattedDate; 
+
+
+    List<string> alphabet = new List<string> { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y", "Z"};
+
+    private void OnChange(ChangeEventArgs e)
+    {
+        text = (string)e.Value!;
+    }
+    async Task get_date_Async()
+    {
+        formattedDate = DateTime.Now.ToString("MM/dd/yyyy");
+        iscalled = true;
+    }
+
+
+    private void random_number()
+    {
+        num = random.Next(1, 10);
+        letterCall = true;
+        ToggleDisplay();
+    }
+
+
+    private void ToggleDisplay()
+    {
+        isVisible = !isVisible;
+    }
+
+}
