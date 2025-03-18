@@ -77,3 +77,4 @@ c:\Users\Nate\Desktop\C# Projects\Blazor\Blazor\obj\Debug\net9.0\refint\Blazor.d
 c:\Users\Nate\Desktop\C# Projects\Blazor\Blazor\obj\Debug\net9.0\Blazor.pdb
 c:\Users\Nate\Desktop\C# Projects\Blazor\Blazor\obj\Debug\net9.0\Blazor.genruntimeconfig.cache
 c:\Users\Nate\Desktop\C# Projects\Blazor\Blazor\obj\Debug\net9.0\ref\Blazor.dll
+c:\Users\Nate\Desktop\C# Projects\Blazor\Blazor\obj\Debug\net9.0\Blazor.sourcelink.json

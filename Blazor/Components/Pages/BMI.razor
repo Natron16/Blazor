@@ -1,0 +1,68 @@
+@page "/BMI"
+@layout Layout.MyLayout
+@rendermode InteractiveServer
+
+<div class="mt-3">
+    <label for="weightInput">Weight (lbs):</label>
+    <input id="weightInput" type="number" @bind="Weight" />
+    <p>Weight: @Weight LB</p>
+</div>
+
+<div class="mt-3">
+    <label for="feetInput">Height (feet):</label>
+    <input id="feetInput" type="number" @bind="HeightinFeet" />
+    <p>Height: @HeightinFeet Ft</p>
+</div>
+
+<div class="mt-3">
+    <label for="inchesInput">Height (inches):</label>
+    <input id="inchesInput" type="number" @bind="HeightinInches" @onkeydown="HandleKeyPress" />
+    <p>Height: @HeightinInches Inches</p>
+</div>
+
+@if (bmi == 0)
+{
+    <p><em>BMI: Waiting for input...</em></p>
+}
+else
+{
+    <p>BMI: @bmi</p>
+}
+
+@code
+{
+    private double Weight { get; set; } = 0;
+    private double HeightinFeet { get; set; } = 0;
+    private double HeightinInches { get; set; } = 0;
+    private double bmi { get; set; } = 0;
+
+    private void CalculateBMI()
+    {
+        if (Weight <= 0 || HeightinFeet < 0 || HeightinInches < 0)
+        {
+            bmi = 0;
+            return;
+        }
+
+        // Convert feet to inches
+        double totalInches = (HeightinFeet * 12) + HeightinInches;
+
+        if (totalInches <= 0) 
+        {
+            bmi = 0;
+            return;
+        }
+
+        bmi = Math.Round((Weight / Math.Pow(totalInches, 2)) * 703, 4);
+
+        StateHasChanged(); // Ensures UI updates
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            CalculateBMI();
+        }
+    }
+}
