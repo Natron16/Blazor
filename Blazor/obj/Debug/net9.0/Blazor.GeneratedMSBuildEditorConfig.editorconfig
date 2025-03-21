@@ -32,6 +32,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCTUkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[c:/Users/Nate/Desktop/C\# Projects/Blazor/Blazor/Components/Pages/Breakfast.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xCcmVha2Zhc3QucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [c:/Users/Nate/Desktop/C\# Projects/Blazor/Blazor/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [c:/Users/Nate/Desktop/C\# Projects/Blazor/Blazor/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[c:/Users/Nate/Desktop/C\# Projects/Blazor/Blazor/Components/Pages/ToDo.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUb0RvLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [c:/Users/Nate/Desktop/C\# Projects/Blazor/Blazor/Components/Pages/Weather.razor]

@@ -1,0 +1,46 @@
+@page "/todo"
+@rendermode InteractiveServer
+
+<h3>Gratitude Journal: (@gratitudes.Count)</h3>
+
+<ul>
+    @foreach (var gratitude in gratitudes)
+    {
+        <li>@gratitude.Date: @gratitude.Title</li>
+    }
+</ul>
+
+<div class="mt-3">
+    <p>Date:</p>
+    <input @bind="newDate" placeholder="Enter date..." />
+</div>
+
+<div class="mt-3">
+    <p>Gratitude:</p>
+    <input @bind="newGratitude" placeholder="Enter gratitude..." />
+</div>
+
+<button @onclick="AddGratitude">Add Gratitude</button>
+
+@code
+{
+    List<Gratitude> gratitudes = new List<Gratitude>(); 
+    string newGratitude = "";
+    string newDate = "";
+
+    public class Gratitude
+    {
+        public string Title { get; set; }
+        public string Date { get; set; }
+    }
+
+    private void AddGratitude(MouseEventArgs e)
+    {
+        if (!string.IsNullOrWhiteSpace(newGratitude) && !string.IsNullOrWhiteSpace(newDate))
+        {
+            gratitudes.Add(new Gratitude { Title = newGratitude, Date = newDate });
+            newGratitude = "";
+            newDate = "";
+        }
+    }
+}

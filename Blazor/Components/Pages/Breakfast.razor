@@ -1,0 +1,48 @@
+@page "/breakfast"
+@attribute [StreamRendering]
+@rendermode InteractiveServer
+
+<h3>Breakfast</h3>
+
+<button class="btn btn-primary" @onclick="PourCoffee">Pour Coffee</button>
+
+<button class="btn btn-primary" @onclick="FryEggsAsync">Fry Egg</button>
+
+<p>@CoffeeMessage</p>
+<p>Egg Status: @eggStatus</p>
+
+@code
+{
+    private string CoffeeMessage = "No coffee poured yet.";
+
+    private string eggStatus = "";
+
+    private void PourCoffee()
+    {
+        CoffeeMessage = $"Coffee ready {DateTime.Now:HH:mm:ss}";
+    }
+
+    private async void FryEggsAsync()
+    {
+        eggStatus = "Warming the egg pan...";
+        StateHasChanged();  // Force UI update
+        await Task.Delay(3000);
+
+        eggStatus = "Cracking eggs...";
+        StateHasChanged();
+        await Task.Delay(3000);
+
+        eggStatus = "Cooking the eggs...";
+        StateHasChanged();
+        await Task.Delay(3000);
+
+        eggStatus = "Put eggs on plate.";
+        StateHasChanged();
+    }
+
+
+
+}
+
+
+
